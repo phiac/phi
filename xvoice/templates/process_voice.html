@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Voice Query App - Ask anything and get instant responses.">
+  <script src="{% static 'js/app.js' %}"></script>
+  <title>Mind Power</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+
+  <div class="sidebar">
+    <ul>
+      <li><a href="/machine_learning/">Machine Learning</a></li>
+      <li><a href="/messaging_view/">Messaging</a></li>
+
+    </ul>
+  </div>
+
+  <div class="content">
+    <h1>Power Mind</h1>
+
+    <!-- Query Input Section -->
+    <div class="query-section">
+
+      <form method="post" action="/process_voice/">
+          {% csrf_token %}
+          <label for="query">Enter Your Desire:</label>
+          <textarea id="queryInput" name="query" placeholder="Type your interest here..." style="background-color: #ffd7b3;"></textarea>
+          <!-- Styled Submit Button -->
+          <button id="submitQuery" class="arrow-button">&#10148;</button>
+      </form>
+
+    </div>
+    </div>
+
+    <!-- Query Results Section -->
+    <div class="results-section">
+      <h2>Interest Results:</h2>
+      <div id="resultsBox">Your interest results will appear here...</div>
+    </div>
+
+    <!-- XML Display Section -->
+    <div class="xml-display-section">
+      <h2>XML Data:</h2>
+      <iframe src="/static/data/data.xml" width="100%" height="300"></iframe>
+    </div>
+  </div>
+  <!-- Color Picker -->
+   <div class="color-picker">
+     <label for="colorPicker">Choose a Background Color:</label>
+     <input type="color" id="colorPicker" value="#ffffff">
+   </div>
+ </div>
+
+  <script src="/static/js/script.js"></script>
+</body>
+</html>

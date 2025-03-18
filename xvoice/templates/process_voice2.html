@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Voice Query App - Ask anything and get instant responses.">
+    <title>Process Voice</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+<body>
+  <body style="background-color: #2F4F7F;">
+    <header class="main-header">
+        <div class="container">
+            <h1>Process Voice</h1>
+            <p>Ask your questions and get instant answers!</p>
+        </div>
+    </header>
+
+    <main class="main-content container">
+        <section class="query-section">
+            <h2>Enter Your Query</h2>
+            <form method="post" class="query-form">
+                {% csrf_token %}
+                <label for="query">Your Question:</label>
+                <input type="text" id="query" name="query" placeholder="Type your question here..." required>
+                <button type="submit">Submit</button>
+            </form>
+
+            {% if response %}
+                <div class="response-box success">
+                    <h3>Response:</h3>
+                    <p>{{ response }}</p>
+                </div>
+            {% elif error %}
+                <div class="response-box error">
+                    <h3>Error:</h3>
+                    <p>{{ error }}</p>
+                </div>
+            {% endif %}
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Process Voice. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

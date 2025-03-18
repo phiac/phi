@@ -1,0 +1,74 @@
+Documentation for Machine Learning App Using Markov Decision Process (MDP)
+
+This document serves as a reference for understanding and implementing a machine learning app that uses Markov Decision Processes (MDPs). It includes definitions, best practices, and a README file for web deployment.
+Definitions
+Markov Decision Process (MDP)
+
+An MDP is a mathematical framework used to model decision-making problems where outcomes are partly random and partly under the control of a decision-making agent. It is defined by the tuple:
+MDP=(S,A,P,R,γ)
+MDP=(S,A,P,R,γ)
+
+    SS: A set of possible states the agent can be in.
+
+    AA: A set of possible actions the agent can take.
+
+    P(s′∣s,a)P(s′∣s,a): The transition probability of moving from state ss to state s′s′ after taking action aa.
+
+    R(s,a)R(s,a): The reward received for taking action aa in state ss.
+
+    γγ: The discount factor that determines how much future rewards are valued compared to immediate rewards (0≤γ≤10≤γ≤1).
+
+Markov Property
+
+The Markov Property states that the next state depends only on the current state and action, not on the sequence of previous states. This simplifies decision-making by focusing only on the present.
+Policy (ππ)
+
+A policy is a mapping from states to actions. It defines what action an agent should take in each state to maximize cumulative rewards.
+Value Function (V(s)V(s))
+
+The value function represents the expected cumulative reward starting from state ss and following a specific policy.
+Q-Value Function (Q(s,a)Q(s,a))
+
+The Q-value function represents the expected cumulative reward starting from state ss, taking action aa, and following a specific policy thereafter.
+Best Practices
+1. Define MDP Components Clearly
+
+    Clearly define all states (SS), actions (AA), transition probabilities (PP), rewards (RR), and the discount factor (γγ).
+
+    Ensure that transition probabilities sum to 1 for each state-action pair.
+
+2. Validate Input Data
+
+    Validate that transition_probabilities and rewards have consistent dimensions:
+
+        transition_probabilities: [num_states][num_actions][num_states]
+
+        rewards: [num_states][num_actions][num_states]
+
+    Use helper functions to debug and validate data before running algorithms.
+
+3. Use Value Iteration or Policy Iteration
+
+    Implement value iteration or policy iteration algorithms to compute optimal policies.
+
+    Use dynamic programming techniques to improve computational efficiency.
+
+4. Optimize Discount Factor (γγ)
+
+    Choose γγ based on the problem:
+
+        High γγ (close to 1): Long-term rewards are prioritized.
+
+        Low γγ (close to 0): Immediate rewards are prioritized.
+
+5. Handle Edge Cases
+
+    Ensure proper handling of terminal states (states with no further transitions).
+
+    Avoid invalid inputs by adding error handling and validation checks.
+
+6. Visualize Results
+
+    Visualize policies and value functions using graphs or heatmaps for better interpretability.
+
+    Provide clear output for policies (e.g., mapping states to actions).

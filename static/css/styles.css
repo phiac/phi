@@ -1,0 +1,96 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #455a64; /* Muted blue-gray background */
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.query-section, .results-section, .xml-display-section {
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: calc(100% - 20px);
+  height: 100px;
+  margin-top: 10px;
+}
+
+#resultsBox {
+  background-color: #dbeafe; /* Light blue */
+  padding: 10px;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #1e3a5f; /* Muted blue */
+  color: white;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: white;
+}
+
+.content {
+  margin-left: 220px;
+  padding: 20px;
+}
+
+.input-box {
+  width: calc(100% - 50px);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffd7b3; /* Muted sunset gold */
+}
+
+.arrow-button {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Makes it round */
+  background-color: #ffcc80; /* Sunset gold */
+  border: none;
+  font-size: large;
+  color: white;
+  text-align: center;
+}
+
+.arrow-button:hover {
+  background-color: #ffa726; /* Darker gold on hover */
+}
+
+.video-feed {
+  background-color: #dbeafe; /* Light blue */
+  padding: 20px;
+}
+
+.color-picker {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #1e3a5f; /* Muted blue */
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}

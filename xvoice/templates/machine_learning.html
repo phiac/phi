@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Machine Learning</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+<body>
+  <div class="sidebar">
+    <ul>
+
+      <li><a href="/messaging/">Messaging</a></li>
+      <li><a href="/process_voice/">AI Mind Power</a></li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <h1>Machine Learning</h1>
+    <p>This section will implement Markov value iteration and policy iteration algorithms.</p>
+    <button id="runML">Run Markov Algorithms</button>
+    <div id="mlResults"></div>
+    <form action="/machine_learning/" method="post">
+      {% csrf_token %}
+      <label for="transition_probabilities">Transition Probabilities:</label>
+      <textarea id="transition_probabilities" name="transition_probabilities"></textarea>
+      <label for="rewards">Rewards:</label>
+      <textarea id="rewards" name="rewards"></textarea>
+      <button type="submit">Run Value Iteration</button>
+  </form>
+    <h2>Machine Learning Results:</h2>
+    <p>Optimal Policy: {{ policy }}</p>
+    <p>State Values: {{ values }}</p>
+
+  </div>
+
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messaging App</title>
+    <link rel="stylesheet" href="{% static 'messaging/style.css' %}">
+    <style>
+           :root {
+               --bg-color: white;
+               --text-color: black;
+           }
+           [data-theme="dark"] {
+               --bg-color: black;
+               --text-color: white;
+           }
+           body {
+               background-color: var(--bg-color);
+               color: var(--text-color);
+               transition: background-color 0.3s, color 0.3s;
+           }
+       </style>
+</head>
+<body>
+    <button id="theme-toggle">Toggle Theme</button>
+
+    <h2>Messages</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="recipient">Recipient:</label>
+        <input type="text" id="recipient" name="recipient"><br><br>
+        <label for="content">Message:</label>
+        <textarea id="content" name="content"></textarea><br><br>
+        <input type="submit" value="Send">
+    </form>
+
+    <!-- Display received messages -->
+    <h2>Received Messages</h2>
+    {% for message in received_messages %}
+        <div style="border: 1px solid black; padding: 10px; margin-bottom: 10px;">
+            <p><strong>From:</strong> {{ message.sender.username }}</p>
+            <p>{{ message.content }}</p>
+            <p><strong>Sentiment:</strong> {{ message.sentiment }}</p>
+            <p><small>{{ message.timestamp }}</small></p>
+        </div>
+    {% empty %}
+        <p>No messages received.</p>
+    {% endfor %}
+
+    <!-- Display sent messages -->
+    <h2>Sent Messages</h2>
+    {% for message in sent_messages %}
+        <div style="border: 1px solid black; padding: 10px; margin-bottom: 10px;">
+            <p><strong>To:</strong> {{ message.recipient.username }}</p>
+            <p>{{ message.content }}</p>
+            <p><strong>Sentiment:</strong> {{ message.sentiment }}</p>
+            <p><small>{{ message.timestamp }}</small></p>
+        </div>
+    {% empty %}
+        <p>No messages sent.</p>
+    {% endfor %}
+
+       <script>
+           const toggleButton = document.getElementById('theme-toggle');
+           toggleButton.addEventListener('click', () => {
+               document.body.dataset.theme =
+                   document.body.dataset.theme === 'dark' ? '' : 'dark';
+           });
+       </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+Machine Learning App Using Markov Decision Process
+
+Description
+
+This app models decision-making problems using Markov Decision Processes (MDPs). It allows users to input custom states, actions, transition probabilities, and rewards to compute optimal policies and value functions.
+Features
+
+    Define custom MDPs with user-provided data.
+
+    Compute optimal policies using value iteration.
+
+    Visualize results dynamically through JSON responses or graphical outputs.
+
+    Handle edge cases with robust error handling.
+
+Installation
+Prerequisites
+
+    Python 3.8+
+
+    Django 4.x+
+
+    Required Python libraries:
+
+        numpy
+
+        json
+
+        git clone https://github.com/your-repo/machine-learning-mdp.git
+        cd machine-learning-mdp
+
+        git clone https://github.com/your-repo/machine-learning-mdp.git
+        cd machine-learning-mdp
+
+        pip install -r requirements.txt
+
+Run Django server:
+
+    bash
+    python manage.py runserver
+
+Usage
+Accessing the App
+
+    Open your browser and navigate to http://127.0.0.1:8000/machine_learning/.
+
+    For GET requests:
+
+        View the input form for defining MDP components.
+
+    For POST requests:
+
+        Submit JSON data for transition_probabilities and rewards.
+
+        Example input:
+
+    json
+    {
+        "transition_probabilities": [
+            [[0.7, 0.3], [0.4, 0.6]],
+            [[0.8, 0.2], [0.5, 0.5]]
+        ],
+        "rewards": [
+            [[10, -1], [5, -1]],
+            [[-1, -1], [2, -3]]
+        ]
+    }
+
+View results as JSON output:
+
+    json
+    {
+        "policy": [0, 1],
+        "values": [10.5, 8]
+    }
+
+API Endpoints
+/machine_learning/
+
+    GET: Renders the input form for defining MDP components.
+
+    POST: Accepts JSON data for transition_probabilities and rewards, computes policies and values using value iteration, and returns results as JSON.
+
+Example Outputs
+Input Example:
+
+json
+{
+    "transition_probabilities": [
+        [[0.7, 0.3], [0.4, 0.6]],
+        [[0.8, 0.2], [0.5, 0.5]]
+    ],
+    "rewards": [
+        [[10, -1], [5, -1]],
+        [[-1, -1], [2, -3]]
+    ]
+}
+
+Output Example:
+
+json
+{
+    "policy": [0, 1],
+    "values": [10.5, 8]
+}

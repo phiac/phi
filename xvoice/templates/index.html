@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Voice Assistant</title>
+    <body style="background-color: #121212;">
+    <style>
+        button {
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="start-button">Start Listening</button>
+    <button id="stop-button" disabled>Stop Listening</button>
+    <div id="output"></div>
+
+    <script src="{% static 'voice_assistant.js' %}"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voice Assistant</title>
+    <style>
+        button {
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="start-button">Start Listening</button>
+    <button id="stop-button" disabled>Stop Listening</button>
+    <div id="output"></div>
+
+  <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Upload</title>
+</head>
+<body>
+  <button id="theme-toggle">Toggle Theme</button>
+    <h1>Upload a Video</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Video</button>
+    </form>
+
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.dataset.theme =
+                document.body.dataset.theme === 'dark' ? '' : 'dark';
+        });
+    </script>
+
+</body>
+</html>

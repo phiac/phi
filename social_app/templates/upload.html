@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <title>File Upload</title>
+</head>
+<body>
+  <button id="theme-toggle">Toggle Theme</button>
+    <h1>Upload a File</h1>
+    <a href="{% url 'social_app:upload' %}">Upload</a>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">
+    Upload <i class="fas fa-arrow-right"></i>
+</button>
+    </form>
+
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.dataset.theme =
+                document.body.dataset.theme === 'dark' ? '' : 'dark';
+        });
+    </script>
+
+</body>
+</html>
