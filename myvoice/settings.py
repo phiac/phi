@@ -42,7 +42,7 @@ LOGGING = {
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['videofeed.mysql.pythonanywhere-services.com'],
+ALLOWED_HOSTS = [],
 
 
 # Application definition
@@ -102,18 +102,16 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'myvoice.settings'
 
 # Databasehttps://docs.djangoproject.com/en/5.1/ref/settings/#databases
 DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.mysql',
-         'NAME': 'videofeed$data',
-         'USER': 'videofeed',
-         'PASSWORD': 'MYPASSJOE',
-         'HOST': 'videofeed.mysql.pythonanywhere-services.com',
-         'PORT': '3306',
-         'OPTIONS': {
-             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-         }
-     }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your_database_name',
+        'USER': 'your_user',
+        'PASSWORD': 'your_password',
+        'HOST': 'your_host',
+        'PORT': 'your_port',  # Default is 5432
+    }
 }
+
 
 
 
