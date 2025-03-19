@@ -1,7 +1,6 @@
 [phases.setup]
 apt_pkgs = ["python3-distutils", "libmysqlclient-dev", "build-essential"]
 cmd = "rm -rf /root/.cache/pip && pip install -r requirements.txt"
-[phases.setup]
 apt_pkgs = ["python3-distutils", "libmysqlclient-dev", "build-essential"]
 pip_pkgs = ["setuptools==67.0.0", "wheel"]
 
