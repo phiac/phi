@@ -41,6 +41,7 @@ MarkupSafe==2.1.5
 nltk==3.9.1
 numpy==1.26
 packaging==24.2
+psycopg2-binary
 pycparser==2.22
 pyee==13.0.0
 pylibsrtp==0.10.0
