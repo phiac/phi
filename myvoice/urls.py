@@ -13,7 +13,7 @@ urlpatterns = [
     path('messaging_view/', include('messaging.urls')),  # Include app URLs
     path('ml/', include('ml.urls')),
     path('query_search/', include('query_search.urls')),
-    path('login/', lambda request: redirect('/accounts/login/')),  # Redirect /login to /accounts/login/
+    path('login/', include('django.contrib.auth.urls')),  # Login-related URLs
     path('accounts/login/', CustomLoginView.as_view(), name='login'),
     path('social_app/', include('social_app.urls', namespace='social_app')),
     path('', include('xvoice.urls')),  # Include xvoice app URLs
