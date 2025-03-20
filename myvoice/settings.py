@@ -106,7 +106,6 @@ path = '/home/videofeed/myvoice/myvoice/'
 os.environ['DJANGO_SETTINGS_MODULE'] = 'myvoice.settings'
 
 # Databasehttps://docs.djangoproject.com/en/5.1/ref/settings/#databases
-import os
 
 DATABASES = {
     'default': {
