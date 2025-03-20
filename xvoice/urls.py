@@ -4,11 +4,12 @@ from . import views
 from .views import register
 from django.shortcuts import redirect
 from django.contrib.auth import views as auth_views
+from django.views.generic import RedirectView
 
 urlpatterns = [
-    # path('messaging/', views.messaging_view, name='messaging'),
-    # Option 2: Redirect to an existing URL (e.g., login)
+    # Redirect the root URL to the login page
     path('', RedirectView.as_view(url='login/'), name='root_redirect'),
+    # path('messaging/', views.messaging_view, name='messaging'),
 
     path('login/', lambda request: redirect('/accounts/login/')),  # Redirect /login to /accounts/login/
     path('accounts/login/', CustomLoginView.as_view(), name='login'),  # Add this line
