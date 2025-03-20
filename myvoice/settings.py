@@ -44,6 +44,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['phi-production.up.railway.app', 'localhost', '127.0.0.1'],
 
+CSRF_TRUSTED_ORIGINS = ['https://phi-production.up.railway.app']
 
 
 # Application definition
