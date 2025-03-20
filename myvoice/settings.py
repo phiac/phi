@@ -43,12 +43,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['phi-production.up.railway.app'],
 
-CSRF_TRUSTED_ORIGINS = ['https://phi-production.up.railway.app']
+#CSRF_TRUSTED_ORIGINS = ['https://phi-production.up.railway.app']
 
 # ... other settings ...
 
-logging.debug("ALLOWED_HOSTS: %s", ALLOWED_HOSTS)
-print("CSRF_TRUSTED_ORIGINS:", CSRF_TRUSTED_ORIGINS)
+#logging.debug("ALLOWED_HOSTS: %s", ALLOWED_HOSTS)
+#print("CSRF_TRUSTED_ORIGINS:", CSRF_TRUSTED_ORIGINS)
 
 # Application definition
 
