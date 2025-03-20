@@ -11,32 +11,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-y0&g8dvlox@d92kfqfl+y%ad2ct)go+*+$)a7h7c+gsqpq@^bf"
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-        'file': {
-            'level': 'INFO',  # Change level here
-            'class': 'logging.FileHandler',
-            'filename': 'info.log',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console', 'file'],
-            'level': 'INFO',  # Change level here
-            'propagate': True,
-        },
-        'myvoice': {  # Replace 'myapp' with your app name
-            'handlers': ['console', 'file'],
-            'level': 'INFO',  # Change level here
-            'propagate': True,
-        },
-    },
-}
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -219,7 +193,7 @@ SESSION_COOKIE_DOMAIN = ".pythonanywhere.com/user/videofeed/myvoice/"  # Correct
 SESSION_COOKIE_SECURE = True # Only send the cookie over HTTPS
 
 # Django CORS settings
-CORS_ORIGIN_WHITELIST = ['https://node-app.www.pythonanywhere.com/user/videofeed/myvoice/',]
+CORS_ORIGIN_WHITELIST = ['https://node-app.www.pythonanywhere.com/user/videofeed/myvoice/'],
 CORS_ALLOW_CREDENTIALS = True
 
 # Advanced Redis configuration
@@ -241,3 +215,33 @@ SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'  # Referrer policy fo
 USE_X_FORWARDED_HOST = True  # Trust proxy headers for request host
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')  # Indicate SSL via proxy headers
 
+# Log ALLOWED_HOSTS (optional for debugging)
+logging.debug("ALLOWED_HOSTS: %s", ALLOWED_HOSTS)
+
+# Django logging configuration
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': 'info.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        'myvoice': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    },
+}
