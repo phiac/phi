@@ -101,17 +101,18 @@ path = '/home/videofeed/myvoice/myvoice/'
 os.environ['DJANGO_SETTINGS_MODULE'] = 'myvoice.settings'
 
 # Databasehttps://docs.djangoproject.com/en/5.1/ref/settings/#databases
+import os
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'your_database_name',
-        'USER': 'your_user',
-        'PASSWORD': 'your_password',
-        'HOST': 'your_host',
-        'PORT': 'your_port',  # Default is 5432
+        'NAME': os.environ.get('DATABASE_NAME', 'railway'),
+        'USER': os.environ.get('DATABASE_USER', 'postgres'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'spuiRAjWJIIABraVywDjSixizLTeStVf'),
+        'HOST': os.environ.get('DATABASE_HOST', 'postgres.railway.internal'),
+        'PORT': os.environ.get('DATABASE_PORT', '5432'),
     }
 }
-
 
 
 
