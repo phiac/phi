@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-import logging
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -13,19 +13,12 @@ SECRET_KEY = "django-insecure-y0&g8dvlox@d92kfqfl+y%ad2ct)go+*+$)a7h7c+gsqpq@^bf
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+ALLOWED_HOSTS = ['phi-production.up.railway.app', 'localhost', '127.0.0.1']
 
-ALLOWED_HOSTS = ['phi-production.up.railway.app'],
 
-#CSRF_TRUSTED_ORIGINS = ['https://phi-production.up.railway.app']
-
-# ... other settings ...
-
-#logging.debug("ALLOWED_HOSTS: %s", ALLOWED_HOSTS)
-#print("CSRF_TRUSTED_ORIGINS:", CSRF_TRUSTED_ORIGINS)
 
 # Application definition
-
 INSTALLED_APPS = [
     'channels',
     'rest_framework',
@@ -215,33 +208,3 @@ SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'  # Referrer policy fo
 USE_X_FORWARDED_HOST = True  # Trust proxy headers for request host
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')  # Indicate SSL via proxy headers
 
-# Log ALLOWED_HOSTS (optional for debugging)
-logging.debug("ALLOWED_HOSTS: %s", ALLOWED_HOSTS)
-
-# Django logging configuration
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-        'file': {
-            'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': 'info.log',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console', 'file'],
-            'level': 'INFO',
-            'propagate': True,
-        },
-        'myvoice': {
-            'handlers': ['console', 'file'],
-            'level': 'INFO',
-            'propagate': True,
-        },
-    },
-}
