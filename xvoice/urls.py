@@ -7,6 +7,9 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     # path('messaging/', views.messaging_view, name='messaging'),
+    # Option 2: Redirect to an existing URL (e.g., login)
+    path('', RedirectView.as_view(url='login/'), name='root_redirect'),
+
     path('login/', lambda request: redirect('/accounts/login/')),  # Redirect /login to /accounts/login/
     path('accounts/login/', CustomLoginView.as_view(), name='login'),  # Add this line
     path('register/', register, name='register'),
