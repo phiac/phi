@@ -45,7 +45,9 @@ ALLOWED_HOSTS = ['phi-production.up.railway.app', 'localhost', '127.0.0.1'],
 
 CSRF_TRUSTED_ORIGINS = ['https://phi-production.up.railway.app']
 
-print("ALLOWED_HOSTS:", ALLOWED_HOSTS)
+# ... other settings ...
+
+logging.debug("ALLOWED_HOSTS: %s", ALLOWED_HOSTS)
 print("CSRF_TRUSTED_ORIGINS:", CSRF_TRUSTED_ORIGINS)
 
 # Application definition
