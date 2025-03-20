@@ -1,4 +1,5 @@
-
+print("ALLOWED_HOSTS:", ALLOWED_HOSTS)
+print("CSRF_TRUSTED_ORIGINS:", CSRF_TRUSTED_ORIGINS)
 import os
 from pathlib import Path
 
