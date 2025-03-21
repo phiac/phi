@@ -14,22 +14,21 @@
 </div>
 <div class="container">
   {% block reset %}
-<h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Login</button>
-</form>
-{% endblock %}
-    <!-- Color Picker -->
-    <label for="colorPicker">Select a Color:</label>
-    <input type="color" id="colorPicker" value="#ff0000">
-    <button id="applyColorBtn">Apply Color</button>
-    <p id="exampleText">This text will change color based on your selection.</p>
+  <h2>Login</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+  <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+  {% endblock %}
+  <!-- Color Picker -->
+  <label for="colorPicker">Select a Color:</label>
+  <input type="color" id="colorPicker" value="#ff0000">
+  <button id="applyColorBtn">Apply Color</button>
+  <p id="exampleText">This text will change color based on your selection.</p>
 </div>
 {% endblock %}
 {% block scripts %}
 <script src="{% static 'js/app.js' %}"></script>
 {% endblock %}
-
-
