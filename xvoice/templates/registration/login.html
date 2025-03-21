@@ -1,4 +1,9 @@
-
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
 {% block content %}
 <div class="sidebar">
   <ul>
@@ -23,5 +28,7 @@
   <button id="applyColorBtn">Apply Color</button>
   <p id="exampleText">This text will change color based on your selection.</p>
 </div>
+{% endblock %}
+{% block scripts %}
 <script src="{% static 'js/app.js' %}"></script>
 {% endblock %}
