@@ -15,5 +15,24 @@
         <script src="{% static 'js/base.js' %}"></script>
         {% block extra_js %}{% endblock %}
     {% endblock %}
+(base) PS C:\Users\OWNER\phi> git pull
+remote: Enumerating objects: 69, done.
+remote: Counting objects: 100% (69/69), done.
+remote: Compressing objects: 100% (59/59), done.
+remote: Total 60 (delta 42), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (60/60), 15.68 KiB | 38.00 KiB/s, done.
+From https://github.com/phiac/phi
+   26e0ced..4670205  master     -> origin/master
+Updating c502863..4670205
+error: Your local changes to the following files would be overwritten by merge:
+        .env
+        myvoice/settings.py
+Please commit your changes or stash them before you merge.
+error: The following untracked working tree files would be overwritten by merge:
+        xvoice/templates/registration/login.html
+        xvoice/templates/registration/register.html
+Please move or remove them before you merge.
+Aborting
+(base) PS C:\Users\OWNER\phi>
 </body>
 </html>
