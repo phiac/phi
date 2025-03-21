@@ -13,7 +13,7 @@ SECRET_KEY = "django-insecure-y0&g8dvlox@d92kfqfl+y%ad2ct)go+*+$)a7h7c+gsqpq@^bf
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = 'phi-production.up.railway.app',
 
 
@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.environ.get('DATABASE_NAME', 'railway'),
         'USER': os.environ.get('DATABASE_USER', 'postgres'),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'spuiRAjWJIIABraVywDjSixizLTeStVf'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'WaWJKWDltkMPftyvbYEfzchrRuUPGoJj'),
         'HOST': os.environ.get('DATABASE_HOST', 'postgres.railway.internal'),
         'PORT': os.environ.get('DATABASE_PORT', '5432'),
     }
