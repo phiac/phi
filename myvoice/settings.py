@@ -24,7 +24,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'embed_video',
     "query_search",
-    "messaging",
     "ml",
     "social_app",
     "xvoice",
