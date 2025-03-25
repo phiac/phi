@@ -1,54 +1,54 @@
 import os
-# from dotenv import load_dotenv
-# Load environment variables from .env file (if using dotenv)
-# load_dotenv()
-
-# from decouple import config
+from dotenv import load_dotenv
+Load environment variables from .env file (if using dotenv)
+load_dotenv()
+from django.contrib.auth.forms import UserCreationForm
+from decouple import config
 import logging
 
 import requests
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 import nltk
-# nltk.download('punkt_tab')
-# nltk.download('wordnet')
-# nltk.download('stopwords')
+nltk.download('punkt_tab')
+nltk.download('wordnet')
+nltk.download('stopwords')
 from nltk.tokenize import word_tokenize
 from datetime import datetime
-# from sklearn.feature_extraction.text import TfidfVectorizer
-# from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import TfidfVectorizer
+gffrom sklearn.metrics.pairwise import cosine_similarity
 from transformers import pipeline
 import wikipedia
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from transformers import TFDistilBertForQuestionAnswering, DistilBertTokenizer
-# import tensorflow as tf
+ import tensorflow as tf
 
-# Load pre-trained model and tokenizer
-# model = TFDistilBertForQuestionAnswering.from_pretrained('distilbert-base-uncased-distilled-squad')
-# tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased-distilled-squad')
+ Load pre-trained model and tokenizer
+ model = TFDistilBertForQuestionAnswering.from_pretrained('distilbert-base-uncased-distilled-squad')
+ tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased-distilled-squad')
 
 # Example question and context
 question = "What is the capital of France?"
 context = "The capital of France is Paris."
 
 # Preprocess inputs
-# inputs = tokenizer(question, context, return_tensors="tf")
+ inputs = tokenizer(question, context, return_tensors="tf")
 
 # Get predictions
-# outputs = model(**inputs)
+ outputs = model(**inputs)
 
 # # Extract answer
-# answer_start_scores, answer_end_scores = outputs.start_logits, outputs.end_logits
+ answer_start_scores, answer_end_scores = outputs.start_logits, outputs.end_logits
 
 # # Compute answer
-# answer_start = tf.argmax(answer_start_scores, axis=1).numpy()[0]
-# answer_end = tf.argmax(answer_end_scores, axis=1).numpy()[0] + 1
+ answer_start = tf.argmax(answer_start_scores, axis=1).numpy()[0]
+ answer_end = tf.argmax(answer_end_scores, axis=1).numpy()[0] + 1
 
 # # Convert to text
-# answer = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(inputs.input_ids[0][answer_start:answer_end]))
+ answer = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(inputs.input_ids[0][answer_start:answer_end]))
 
-# print(f"Answer: {answer}")
+ print(f"Answer: {answer}")
 
 
 # api/views.py
@@ -163,9 +163,9 @@ def process_voice(request):
     if not request.user.is_authenticated:
         return Response({'error': 'Unauthorized'}, status=401)
 
-    # audio_data = request.FILES['audio']
-    # result = voice_processor.process(audio_data)
-    # return Response({'transcription': result})
+     audio_data = request.FILES['audio']
+     result = voice_processor.process(audio_data)
+     return Response({'transcription': result})
 
 
     if request.method == 'POST':
@@ -326,46 +326,46 @@ import pickle
 # nltk.download('stopwords')
 
 # Prepare data
-# negids = movie_reviews.fileids('neg')
-# posids = movie_reviews.fileids('pos')
+ negids = movie_reviews.fileids('neg')
+ posids = movie_reviews.fileids('pos')
 
-# negfeats = [(movie_reviews.raw(fileid), 'neg') for fileid in negids]
-# posfeats = [(movie_reviews.raw(fileid), 'pos') for fileid in posids]
+ negfeats = [(movie_reviews.raw(fileid), 'neg') for fileid in negids]
+ posfeats = [(movie_reviews.raw(fileid), 'pos') for fileid in posids]
 
 # # Combine datasets
-# labeled_file_names = negfeats + posfeats
+ labeled_file_names = negfeats + posfeats
 
 # # Tokenize and remove stopwords
-# stop_words = set(stopwords.words('english'))
+ stop_words = set(stopwords.words('english'))
 
-# def preprocess_text(text):
-#     tokens = word_tokenize(text)
-#     tokens = [t for t in tokens if t.isalpha() and t.lower() not in stop_words]
-#     return ' '.join(tokens)
+def preprocess_text(text):
+    tokens = word_tokenize(text)
+    tokens = [t for t in tokens if t.isalpha() and t.lower() not in stop_words]
+    return ' '.join(tokens)
 
-# labeled_file_names = [(preprocess_text(text), label) for text, label in labeled_file_names]
+labeled_file_names = [(preprocess_text(text), label) for text, label in labeled_file_names]
 
 # # Split data into training and testing sets
-# train_data, test_data = train_test_split(labeled_file_names, test_size=0.2, random_state=42)
+train_data, test_data = train_test_split(labeled_file_names, test_size=0.2, random_state=42)
 
-# train_texts = [text for text, _ in train_data]
-# train_labels = [label for _, label in train_data]
+train_texts = [text for text, _ in train_data]
+train_labels = [label for _, label in train_data]
 
-# test_texts = [text for text, _ in test_data]
-# test_labels = [label for _, label in test_data]
+test_texts = [text for text, _ in test_data]
+test_labels = [label for _, label in test_data]
 
-# # Vectorize text data
-# vectorizer = CountVectorizer()
-# X_train = vectorizer.fit_transform(train_texts)
-# y_train = train_labels
+# Vectorize text data
+vectorizer = CountVectorizer()
+X_train = vectorizer.fit_transform(train_texts)
+y_train = train_labels
 
-# # Train the model
-# clf = MultinomialNB()
-# clf.fit(X_train, y_train)
+# Train the model
+clf = MultinomialNB()
+clf.fit(X_train, y_train)
 
-# # Save the model for later use
-# with open('sentiment_model.pkl', 'wb') as f:
-#     pickle.dump((vectorizer, clf), f)
+# Save the model for later use
+with open('sentiment_model.pkl', 'wb') as f:
+    pickle.dump((vectorizer, clf), f)
 
 
 from django.conf import settings
@@ -427,16 +427,11 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form})
 
-
-from django.contrib.auth.forms import UserCreationForm
-
-#     return render(request, 'register.html', {'form': form})
-
 def send_otp(request):
-    # Generate OTP and send via SMS
+    Generate OTP and send via SMS
     user = request.user
-    # otp = generate_otp()  # Implement OTP generation logic
-    # send_sms(user.phone_number, otp)  # Implement SMS sending logic
+    otp = generate_otp()  # Implement OTP generation logic
+    send_sms(user.phone_number, otp)  # Implement SMS sending logic
     return HttpResponse("OTP sent successfully.")
 
 def verify_otp(request):
