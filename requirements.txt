@@ -3,7 +3,7 @@ aiortc==1.9.0
 asgiref==3.8.1
 async-timeout==5.0.1
 av==12.3.0
-
+bcrypt
 beautifulsoup4==4.13.3
 bidict==0.23.1
 blinker==1.8.2
@@ -41,6 +41,7 @@ MarkupSafe==2.1.5
 nltk==3.9.1
 numpy==1.26
 packaging==24.2
+perplexity-ai
 psycopg2-binary
 pycparser==2.22
 pyee==13.0.0
